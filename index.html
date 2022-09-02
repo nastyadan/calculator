@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ra">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Culculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            background-color: rgb(250, 209, 231);
+        }
+
+        button {
+            width: 10em;
+            height: 5em;
+            border-radius: 5%;
+            border: 2px solid white;
+            color: white;
+            font-weight: 700;
+            background-color: rgb(231, 147, 227);
+        }
+
+        button:hover {
+            background-color: rgb(240, 125, 192);
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="add()">Сложение</button>
+    <button onclick="subtract()">Вычитание</button>
+    <button onclick="multiply()">Умножение</button>
+    <button onclick="divide()">Деление</button>
+    <script src="script.js"></script>
+</body>
+
+</html>
