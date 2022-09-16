@@ -1,42 +1,107 @@
-<!DOCTYPE html>
-<html lang="ra">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Culculator</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            height: 100vh;
-            background-color: rgb(250, 209, 231);
-        }
-
-        button {
-            width: 10em;
-            height: 5em;
-            border-radius: 5%;
-            border: 2px solid white;
-            color: white;
-            font-weight: 700;
-            background-color: rgb(231, 147, 227);
-        }
-
-        button:hover {
-            background-color: rgb(240, 125, 192);
-        }
-    </style>
+    <title>Калькулятор</title>
 </head>
+<style>
+    form {
+        display: flex;
+        height: 80vh;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
 
-<body>
-    <button onclick="add()">Сложение</button>
-    <button onclick="subtract()">Вычитание</button>
-    <button onclick="multiply()">Умножение</button>
-    <button onclick="divide()">Деление</button>
-    <script src="script.js"></script>
+    div {
+        width: 12rem;
+        margin: 3em;
+    }
+
+    .btn {
+        width: 5em;
+        height: 2em;
+        border: 1px solid;
+        margin: 1em;
+    }
+
+    .btn-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+</style>
+
+<body id="body">
+
+    <select id="change" onchange="changeColorTheme()">
+        <option disabled selected="selected" onchange="changeColorTheme()">Выберете тему</option>
+        <option value="pink">Розовая</option>
+        <option value="blue">Голубая</option>
+        <option value="green">Зеленая</option>
+    </select>
+
+    <form name="calcform">
+        <div>
+            <div>
+                <p>Введи первое число</p>
+                <input name="num_01" type="text" size="24" maxlength=16 placeholder="Первое число">
+            </div>
+            <div>
+                <p>Введите второе число</p>
+                <input name="num_02" type="text" size="24" maxlength=16 placeholder="Второе число">
+            </div>
+            <div>
+                <p>Расчитать:</p>
+                <input name="res" type="text" size="24" maxlength=0 placeholder="Результат">
+            </div>
+        </div>
+        <div class="btn-container">
+            <input class="btn" name="btnadd" type="button" value="  +  " onClick="GetResult(1)">
+            <input class="btn" name="btnsub" type="button" value="  -  " onClick="GetResult(2)">
+            <input class="btn" name="btnmul" type="button" value="  *  " onClick="GetResult(3)">
+            <input class="btn" name="btndiv" type="button" value="  /  " onClick="GetResult(4)">
+        </div>
+
+    </form>
+    <script>
+        function GetResult(oper) {
+            let n1 = 0;
+            let n2 = 0;
+
+            n1 = Number(calcform.num_01.value);
+            n2 = Number(calcform.num_02.value);
+
+            switch (oper) {
+                case 1: {
+                    calcform.res.value = n1 + n2;
+                    break;
+                }
+                case 2: {
+                    calcform.res.value = n1 - n2;
+                    break;
+                }
+                case 3: {
+                    calcform.res.value = n1 * n2;
+                    break;
+                }
+                case 4: {
+                    calcform.res.value = n1 / n2;
+                    break;
+                }
+            }
+        }
+
+        function changeColorTheme() {
+            if (document.getElementById("change").value == "pink")
+                document.getElementById('body').style.backgroundColor = 'lightpink';
+
+            if (document.getElementById("change").value == "blue")
+                document.getElementById('body').style.backgroundColor = 'lightblue';
+
+            if (document.getElementById("change").value == "green")
+                document.getElementById('body').style.backgroundColor = 'lightgreen';
+        }
+    </script>
 </body>
 
 </html>
