@@ -78,35 +78,35 @@
     </form>
     <script>
         function GetResult(oper) {
-            let n1;
-            let n2;
+            class Calculator {
+                n1 = Number(calcform.num_01.value);
+                n2 = Number(calcform.num_02.value);
 
-            n1 = Number(calcform.num_01.value);
-            n2 = Number(calcform.num_02.value);
+                static сalculate() {
+                    switch (oper) {
+                        case 1: {
+                            calcform.res.value = n1 + n2;
+                            break;
+                        }
+                        case 2: {
+                            calcform.res.value = n1 - n2;
+                            break;
+                        }
+                        case 3: {
+                            calcform.res.value = n1 * n2;
+                            break;
+                        }
+                        case 4: {
+                            if (document.getElementById("input2").value == 0) {
+                                alert('нельзя делить на ноль ')
+                            }
+                            calcform.res.value = n1 / n2;
+                            break;
 
-            switch (oper) {
-                case 1: {
-                    calcform.res.value = n1 + n2;
-                    break;
-                }
-                case 2: {
-                    calcform.res.value = n1 - n2;
-                    break;
-                }
-                case 3: {
-                    calcform.res.value = n1 * n2;
-                    break;
-                }
-                case 4: {
-                    if (document.getElementById("input2").value == 0) {
-                        alert('нельзя делить на ноль ')
+                        }
                     }
-                    calcform.res.value = n1 / n2;
-                    break;
-
                 }
             }
-
         }
 
         function changeColorTheme() {
