@@ -78,8 +78,8 @@
     </form>
     <script>
         function GetResult(oper) {
-            let n1 = 0;
-            let n2 = 0;
+            let n1;
+            let n2;
 
             n1 = Number(calcform.num_01.value);
             n2 = Number(calcform.num_02.value);
@@ -98,12 +98,15 @@
                     break;
                 }
                 case 4: {
+                    if (document.getElementById("input2").value == 0) {
+                        alert('нельзя делить на ноль ')
+                    }
                     calcform.res.value = n1 / n2;
                     break;
+
                 }
             }
-            if (document.getElementById("input2").value = "0")
-                alert('нельзя делить на ноль ')
+
         }
 
         function changeColorTheme() {
